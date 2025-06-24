@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Instagram, Facebook, Twitter } from "lucide-react";
+import logo from "@/image/logo.png";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -9,7 +10,7 @@ export function Footer() {
       <div className="container max-w-7xl py-12 text-center">
         <div className="flex justify-center items-center mb-4">
           <Image
-            src="/image/logo.png"
+            src={logo}
             width={150}
             height={50}
             alt="LensBloom Logo"

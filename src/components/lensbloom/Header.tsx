@@ -7,6 +7,7 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
+import logo from "@/image/logo.png";
 
 const navLinks = [
   { href: "#home", label: "Home" },
@@ -25,10 +26,10 @@ export function Header() {
       <div className="container flex h-16 max-w-7xl items-center justify-between">
         <Link href="#home" className="flex items-center">
           <Image
-            src="/image/logo.png"
+            src={logo}
             width={140}
             height={40}
-            alt="Rosmed Logo"
+            alt="LensBloom Logo"
             priority
           />
         </Link>
@@ -58,7 +59,7 @@ export function Header() {
                 <div className="flex justify-between items-center p-4 border-b">
                    <Link href="#home" className="flex items-center" onClick={() => setIsMenuOpen(false)}>
                     <Image
-                      src="/image/logo.png"
+                      src={logo}
                       width={140}
                       height={40}
                       alt="LensBloom Logo"
