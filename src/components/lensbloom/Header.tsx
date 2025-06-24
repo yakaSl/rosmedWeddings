@@ -24,7 +24,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 max-w-7xl items-center justify-between">
-        <Link href="#home" className="flex items-center">
+        <Link href="/" className="flex items-center">
           <Image
             src={logo}
             width={140}
@@ -34,17 +34,22 @@ export function Header() {
           />
         </Link>
 
-        <nav className="hidden md:flex gap-6">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-lg font-medium text-foreground/80 transition-colors hover:text-foreground"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
+        <div className="hidden md:flex items-center gap-6">
+          <nav className="flex gap-6">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-lg font-medium text-foreground/80 transition-colors hover:text-foreground"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+          <Link href="/signup" passHref>
+            <Button variant="outline">Sign Up</Button>
+          </Link>
+        </div>
 
         <div className="md:hidden">
           <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
@@ -57,7 +62,7 @@ export function Header() {
             <SheetContent side="right" className="w-[300px] bg-background">
               <div className="flex flex-col h-full">
                 <div className="flex justify-between items-center p-4 border-b">
-                   <Link href="#home" className="flex items-center" onClick={() => setIsMenuOpen(false)}>
+                   <Link href="/" className="flex items-center" onClick={() => setIsMenuOpen(false)}>
                     <Image
                       src={logo}
                       width={140}
@@ -84,6 +89,15 @@ export function Header() {
                       </Link>
                     </SheetClose>
                   ))}
+                  <SheetClose asChild key="/signup">
+                    <Link
+                      href="/signup"
+                      className="text-xl font-medium text-foreground/80 transition-colors hover:text-foreground w-full text-left py-2"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Sign Up
+                    </Link>
+                  </SheetClose>
                 </nav>
               </div>
             </SheetContent>
