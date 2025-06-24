@@ -13,7 +13,7 @@ export function Footer() {
             src={logo}
             width={150}
             height={50}
-            alt="LensBloom Logo"
+            alt="RosemedWeddings Logo"
           />
         </div>
         <p className="mb-6">Capturing life's most precious moments.</p>
@@ -29,7 +29,7 @@ export function Footer() {
           </Link>
         </div>
         <p className="text-sm text-primary-foreground/70">
-          © {currentYear} LensBloom Photography. All Rights Reserved.
+          © {currentYear} RosemedWeddings Photography. All Rights Reserved.
         </p>
       </div>
     </footer>

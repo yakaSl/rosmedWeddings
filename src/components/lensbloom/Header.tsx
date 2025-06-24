@@ -29,7 +29,7 @@ export function Header() {
             src={logo}
             width={140}
             height={40}
-            alt="LensBloom Logo"
+            alt="RosemedWeddings Logo"
             priority
           />
         </Link>
@@ -67,7 +67,7 @@ export function Header() {
                       src={logo}
                       width={140}
                       height={40}
-                      alt="LensBloom Logo"
+                      alt="RosemedWeddings Logo"
                     />
                   </Link>
                   <SheetClose asChild>

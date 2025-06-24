@@ -20,14 +20,14 @@ export default function DashboardLayout({
                 src={logo}
                 width={120}
                 height={35}
-                alt="LensBloom Logo"
+                alt="RosemedWeddings Logo"
                 className="group-data-[collapsible=icon]:hidden"
               />
                <Image
                 src={logo}
                 width={32}
                 height={32}
-                alt="LensBloom Logo"
+                alt="RosemedWeddings Logo"
                 className="hidden group-data-[collapsible=icon]:block"
               />
             </Link>

@@ -3,7 +3,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'LensBloom Photography',
+  title: 'RosemedWeddings Photography',
   description: 'Capturing timeless moments with elegance and artistry.',
 };
 

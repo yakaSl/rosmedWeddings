@@ -43,7 +43,7 @@ export function StorySection() {
               My Story & Vision
             </h2>
             <p className="text-lg text-foreground/80">
-              Hello, I'm Alex, the heart and lens behind LensBloom. My journey into photography began with a simple desire to hold onto fleeting moments. I believe that every couple has a unique story, a special spark that deserves to be told with authenticity and artistry.
+              Hello, I'm Alex, the heart and lens behind RosemedWeddings. My journey into photography began with a simple desire to hold onto fleeting moments. I believe that every couple has a unique story, a special spark that deserves to be told with authenticity and artistry.
             </p>
             <p className="text-lg text-foreground/80">
               My approach is to blend into the background, capturing the candid smiles, the happy tears, and the quiet, intimate glances that make your day truly yours. I aim to create not just photos, but heirlooms—timeless images that will transport you back to the joy and emotion of your wedding day for years to come.

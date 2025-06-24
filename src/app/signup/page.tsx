@@ -79,7 +79,7 @@ export default function SignUpPage() {
           <CardHeader className="text-center">
             <CardTitle className="font-headline text-4xl text-primary">Create an Account</CardTitle>
             <CardDescription className="text-lg mt-2">
-              Join LensBloom to save your favorite styles and inspirations.
+              Join RosemedWeddings to save your favorite styles and inspirations.
             </CardDescription>
           </CardHeader>
           <CardContent>
