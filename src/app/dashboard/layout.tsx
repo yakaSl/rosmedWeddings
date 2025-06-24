@@ -35,7 +35,7 @@ export default function DashboardLayout({
           <SidebarContent>
             <SidebarMenu>
               <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive tooltip="Overview">
+                <SidebarMenuButton asChild tooltip="Overview">
                   <Link href="/dashboard">
                     <Home />
                     <span>Overview</span>
@@ -43,8 +43,8 @@ export default function DashboardLayout({
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <SidebarMenuButton asChild tooltip="Galleries">
-                  <Link href="#">
+                <SidebarMenuButton asChild isActive tooltip="Galleries">
+                  <Link href="/dashboard/galleries">
                     <ImageIcon />
                     <span>My Galleries</span>
                   </Link>
@@ -90,7 +90,7 @@ export default function DashboardLayout({
           </SidebarFooter>
         </Sidebar>
         <SidebarInset className="bg-muted/40">
-           <header className="flex h-16 items-center justify-between border-b bg-background px-6">
+           <header className="flex h-16 items-center justify-between border-b bg-background px-6 sticky top-0 z-20">
                 <div className="md:hidden">
                     <SidebarTrigger />
                 </div>

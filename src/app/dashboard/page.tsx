@@ -15,18 +15,20 @@ const upcomingEvents = [
 
 const recentGalleries = [
     {
-        title: "Engagement Session",
+        id: "smith-jones-wedding",
+        title: "Smith & Jones Wedding",
         date: "July 15, 2024",
+        imageCount: 125,
+        thumbnail: "https://placehold.co/600x400.png",
+        hint: "wedding couple kissing"
+    },
+    {
+        id: "engagement-session",
+        title: "Engagement Session",
+        date: "April 05, 2024",
         imageCount: 78,
         thumbnail: "https://placehold.co/600x400.png",
         hint: "engagement couple"
-    },
-    {
-        title: "Family Portraits",
-        date: "May 20, 2024",
-        imageCount: 45,
-        thumbnail: "https://placehold.co/600x400.png",
-        hint: "family portrait"
     },
 ];
 
@@ -65,38 +67,44 @@ export default function DashboardPage() {
             <section>
                 <div className="flex items-center justify-between mb-4">
                     <h2 className="text-2xl font-semibold">Recent Galleries</h2>
-                    <Button variant="outline">View All</Button>
+                    <Button variant="outline" asChild>
+                        <Link href="/dashboard/galleries">View All</Link>
+                    </Button>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
                     {recentGalleries.map((gallery) => (
-                        <Card key={gallery.title} className="overflow-hidden group shadow-md">
-                             <div className="relative aspect-video">
-                                <Image 
-                                    src={gallery.thumbnail} 
-                                    alt={gallery.title} 
-                                    fill
-                                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                                    data-ai-hint={gallery.hint}
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                                <div className="absolute bottom-4 left-4 text-white">
-                                    <h3 className="font-bold text-lg">{gallery.title}</h3>
-                                    <p className="text-sm">{gallery.date}</p>
-                                </div>
-                             </div>
-                            <CardContent className="p-4">
-                                <div className="flex items-center justify-between text-sm text-muted-foreground">
-                                    <div className="flex items-center gap-2">
-                                        <ImageIcon className="w-4 h-4" />
-                                        <span>{gallery.imageCount} photos</span>
+                         <Link href={`/dashboard/galleries/${gallery.id}`} key={gallery.id} className="block">
+                            <Card className="overflow-hidden group shadow-md h-full hover:shadow-xl transition-shadow">
+                                <div className="relative aspect-video">
+                                    <Image 
+                                        src={gallery.thumbnail} 
+                                        alt={gallery.title} 
+                                        fill
+                                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                                        data-ai-hint={gallery.hint}
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                                    <div className="absolute bottom-4 left-4 text-white">
+                                        <h3 className="font-bold text-lg">{gallery.title}</h3>
+                                        <p className="text-sm">{gallery.date}</p>
                                     </div>
-                                    <Button variant="ghost" size="icon" className="h-8 w-8">
-                                        <Download className="w-4 h-4" />
-                                        <span className="sr-only">Download Gallery</span>
-                                    </Button>
                                 </div>
-                            </CardContent>
-                        </Card>
+                                <CardContent className="p-4">
+                                    <div className="flex items-center justify-between text-sm text-muted-foreground">
+                                        <div className="flex items-center gap-2">
+                                            <ImageIcon className="w-4 h-4" />
+                                            <span>{gallery.imageCount} photos</span>
+                                        </div>
+                                        <Button variant="ghost" size="icon" asChild>
+                                          <div className="h-8 w-8 flex items-center justify-center">
+                                            <Download className="w-4 h-4" />
+                                            <span className="sr-only">Download Gallery</span>
+                                          </div>
+                                        </Button>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        </Link>
                     ))}
                 </div>
                  <Card className="mt-6 flex flex-col items-center justify-center p-8 border-2 border-dashed shadow-none bg-transparent">

@@ -13,7 +13,8 @@ export function Footer() {
             src={logo}
             width={150}
             height={50}
-            alt="RosemedWeddings Logo"
+            alt="RosemedWeddings Logo (Footer Version)"
+            className="filter grayscale brightness-0 invert"
           />
         </div>
         <p className="mb-6">Capturing life's most precious moments.</p>
