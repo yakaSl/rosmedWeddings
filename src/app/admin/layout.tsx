@@ -1,4 +1,7 @@
 
+"use client";
+
+import { usePathname } from "next/navigation";
 import { SidebarProvider, Sidebar, SidebarTrigger, SidebarInset, SidebarHeader, SidebarContent, SidebarMenu, SidebarMenuItem, SidebarMenuButton, SidebarFooter } from "@/components/ui/sidebar";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { LayoutDashboard, Image as ImageIcon, Users, Settings, LifeBuoy, LogOut, Shield } from "lucide-react";
@@ -11,6 +14,15 @@ export default function AdminDashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const pathname = usePathname();
+
+  const menuItems = [
+    { href: "/admin", label: "Dashboard", icon: LayoutDashboard, isActive: pathname === '/admin' },
+    { href: "/admin/galleries", label: "Galleries", icon: ImageIcon, isActive: pathname.startsWith('/admin/galleries') },
+    { href: "/admin/clients", label: "Clients", icon: Users, isActive: pathname === '/admin/clients' },
+    { href: "/admin/settings", label: "Settings", icon: Settings, isActive: pathname === '/admin/settings' },
+  ];
+
   return (
     <SidebarProvider>
       <div className="flex min-h-screen bg-background text-foreground">
@@ -35,38 +47,16 @@ export default function AdminDashboardLayout({
           </SidebarHeader>
           <SidebarContent>
             <SidebarMenu>
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild tooltip="Dashboard">
-                  <Link href="/admin">
-                    <LayoutDashboard />
-                    <span>Dashboard</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive tooltip="Galleries">
-                  <Link href="/admin/galleries">
-                    <ImageIcon />
-                    <span>Galleries</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild tooltip="Clients">
-                   <Link href="#">
-                    <Users />
-                    <span>Clients</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild tooltip="Settings">
-                  <Link href="#">
-                    <Settings />
-                    <span>Settings</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
+              {menuItems.map((item) => (
+                <SidebarMenuItem key={item.href}>
+                  <SidebarMenuButton asChild isActive={item.isActive} tooltip={item.label}>
+                    <Link href={item.href}>
+                      <item.icon />
+                      <span>{item.label}</span>
+                    </Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
             </SidebarMenu>
           </SidebarContent>
           <SidebarFooter>

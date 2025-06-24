@@ -1,36 +1,21 @@
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Calendar, Clock, Image as ImageIcon, Download } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { galleries } from "@/lib/mock-data";
 
 const upcomingEvents = [
     {
-        title: "Smith & Jones Wedding",
+        title: "Davis & Miller Wedding",
         date: "October 26, 2024",
         time: "2:00 PM - 10:00 PM",
         location: "The Grand Estate, CA",
     },
 ];
 
-const recentGalleries = [
-    {
-        id: "smith-jones-wedding",
-        title: "Smith & Jones Wedding",
-        date: "July 15, 2024",
-        imageCount: 125,
-        thumbnail: "https://placehold.co/600x400.png",
-        hint: "wedding couple kissing"
-    },
-    {
-        id: "engagement-session",
-        title: "Engagement Session",
-        date: "April 05, 2024",
-        imageCount: 78,
-        thumbnail: "https://placehold.co/600x400.png",
-        hint: "engagement couple"
-    },
-];
+const recentGalleries = galleries.filter(g => g.clientId === 'client-1');
 
 export default function DashboardPage() {
     return (

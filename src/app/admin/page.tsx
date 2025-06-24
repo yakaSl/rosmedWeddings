@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { getGalleryById } from "@/lib/mock-data";
 
-const recentSelectionsGallery = getGalleryById("smith-jones-wedding");
+const recentSelectionsGallery = getGalleryById("jane-john-wedding");
 
 export default function AdminDashboardPage() {
     return (
@@ -23,7 +23,7 @@ export default function AdminDashboardPage() {
                         <Users className="h-4 w-4 text-muted-foreground" />
                     </CardHeader>
                     <CardContent>
-                        <div className="text-2xl font-bold">3</div>
+                        <div className="text-2xl font-bold">2</div>
                         <p className="text-xs text-muted-foreground">+2 since last month</p>
                     </CardContent>
                 </Card>
@@ -34,7 +34,7 @@ export default function AdminDashboardPage() {
                     </CardHeader>
                     <CardContent>
                         <div className="text-2xl font-bold">1</div>
-                        <p className="text-xs text-muted-foreground">Smith & Jones Wedding</p>
+                        <p className="text-xs text-muted-foreground">Jane & John's Wedding</p>
                     </CardContent>
                 </Card>
                  <Card>
