@@ -1,10 +1,11 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { getGalleryById, Photo } from "@/lib/mock-data";
+import { getGalleryById, submitSelections, Photo, Gallery } from "@/lib/mock-data";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Card, CardContent } from "@/components/ui/card";
@@ -73,7 +74,7 @@ export default function GalleryDetailPage() {
   const params = useParams();
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [gallery, setGallery] = useState<ReturnType<typeof getGalleryById>>(undefined);
+  const [gallery, setGallery] = useState<Gallery | null | undefined>(undefined);
   
   useEffect(() => {
     const galleryId = typeof params.id === "string" ? params.id : "";
@@ -83,6 +84,13 @@ export default function GalleryDetailPage() {
 
 
   const [selectedPhotos, setSelectedPhotos] = useState<Set<string>>(new Set());
+
+  // Initialize selections from mock data
+  useEffect(() => {
+    if (gallery?.selections) {
+        setSelectedPhotos(new Set(gallery.selections));
+    }
+  }, [gallery]);
 
   const handleSelectionChange = (photoId: string) => {
     setSelectedPhotos((prev) => {
@@ -97,10 +105,12 @@ export default function GalleryDetailPage() {
   };
 
   const handleSubmit = () => {
+    if (!gallery) return;
     setIsSubmitting(true);
-    console.log("Selected Photos:", Array.from(selectedPhotos));
-    // Simulate API call
+    
+    // Simulate API call to save selections
     setTimeout(() => {
+        submitSelections(gallery.id, Array.from(selectedPhotos));
         setIsSubmitting(false);
         toast({
             title: "Selections Submitted!",

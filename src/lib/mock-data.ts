@@ -1,3 +1,4 @@
+
 export interface Photo {
   id: string;
   src: string;
@@ -13,6 +14,7 @@ export interface Gallery {
   hint: string;
   status: 'selection' | 'proofing' | 'complete';
   photos: Photo[];
+  selections: string[];
 }
 
 export const galleries: Gallery[] = [
@@ -29,6 +31,7 @@ export const galleries: Gallery[] = [
       src: 'https://placehold.co/800x600.png',
       hint: 'wedding photo',
     })),
+    selections: [`sj-wedding-3`, `sj-wedding-8`, `sj-wedding-15`, `sj-wedding-22`, `sj-wedding-45`, `sj-wedding-51`, `sj-wedding-68`, `sj-wedding-99`, `sj-wedding-101`, `sj-wedding-112`, `sj-wedding-120`],
   },
   {
     id: 'chen-family-portraits',
@@ -43,6 +46,7 @@ export const galleries: Gallery[] = [
       src: 'https://placehold.co/800x600.png',
       hint: 'family photo',
     })),
+    selections: [],
   },
     {
     id: 'engagement-session',
@@ -57,10 +61,22 @@ export const galleries: Gallery[] = [
       src: 'https://placehold.co/800x600.png',
       hint: 'engagement photo',
     })),
+    selections: [],
   },
 ];
 
-export const getGalleryById = (id: string | undefined) => {
+export function getGalleryById(id: string | undefined): Gallery | undefined {
   if (!id) return undefined;
-  return galleries.find(g => g.id === id);
+  // Return a copy to prevent direct mutation of the original data
+  const gallery = galleries.find(g => g.id === id);
+  return gallery ? { ...gallery } : undefined;
+}
+
+export function submitSelections(galleryId: string, photoIds: string[]): void {
+    const gallery = galleries.find(g => g.id === galleryId);
+    if (gallery) {
+        gallery.selections = photoIds;
+        gallery.status = 'proofing'; // Or some other status to indicate selections are made
+        console.log(`Selections for ${galleryId} updated:`, photoIds);
+    }
 }
