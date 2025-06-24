@@ -1,14 +1,21 @@
 import Link from "next/link";
-import { Camera, Instagram, Facebook, Twitter } from "lucide-react";
+import Image from "next/image";
+import { Instagram, Facebook, Twitter } from "lucide-react";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="container max-w-7xl py-12 text-center">
-        <div className="flex justify-center items-center gap-2 mb-4">
-          <Camera className="h-7 w-7" />
-          <span className="font-headline text-3xl font-bold">LensBloom</span>
+        <div className="flex justify-center items-center mb-4">
+          <Image
+            src="https://placehold.co/150x50.png"
+            width={150}
+            height={50}
+            alt="LensBloom Logo"
+            data-ai-hint="logo"
+            className="invert dark:invert-0"
+          />
         </div>
         <p className="mb-6">Capturing life's most precious moments.</p>
         <div className="flex justify-center gap-6 mb-8">

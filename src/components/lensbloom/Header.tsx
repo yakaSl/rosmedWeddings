@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, Camera, X } from "lucide-react";
+import Image from "next/image";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
@@ -22,11 +23,15 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 max-w-7xl items-center justify-between">
-        <Link href="#home" className="flex items-center gap-2">
-          <Camera className="h-6 w-6 text-primary" />
-          <span className="font-headline text-2xl font-bold text-primary">
-            LensBloom
-          </span>
+        <Link href="#home" className="flex items-center">
+          <Image
+            src="https://placehold.co/140x40.png"
+            width={140}
+            height={40}
+            alt="LensBloom Logo"
+            data-ai-hint="logo"
+            className="dark:invert"
+          />
         </Link>
 
         <nav className="hidden md:flex gap-6">
@@ -52,11 +57,15 @@ export function Header() {
             <SheetContent side="right" className="w-[300px] bg-background">
               <div className="flex flex-col h-full">
                 <div className="flex justify-between items-center p-4 border-b">
-                   <Link href="#home" className="flex items-center gap-2" onClick={() => setIsMenuOpen(false)}>
-                    <Camera className="h-6 w-6 text-primary" />
-                    <span className="font-headline text-2xl font-bold text-primary">
-                      LensBloom
-                    </span>
+                   <Link href="#home" className="flex items-center" onClick={() => setIsMenuOpen(false)}>
+                    <Image
+                      src="https://placehold.co/140x40.png"
+                      width={140}
+                      height={40}
+                      alt="LensBloom Logo"
+                      data-ai-hint="logo"
+                      className="dark:invert"
+                    />
                   </Link>
                   <SheetClose asChild>
                      <Button variant="ghost" size="icon">
