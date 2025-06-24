@@ -8,9 +8,9 @@ import { cn } from "@/lib/utils";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 const images = [
-  { src: "https://placehold.co/1920x1080.png", hint: "wedding couple" },
-  { src: "https://placehold.co/1920x1080.png", hint: "wedding ceremony" },
-  { src: "https://placehold.co/1920x1080.png", hint: "wedding details" },
+  { src: "/images/hero-wedding-couple.jpg", hint: "wedding couple" },
+  { src: "/images/hero-wedding-ceremony.jpg", hint: "wedding ceremony" },
+  { src: "/images/hero-wedding-details.jpg", hint: "wedding details" },
 ];
 
 export function HeroSection() {
