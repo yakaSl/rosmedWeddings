@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { suggestWeddingPhotographyStyle, SuggestWeddingPhotographyStyleInput } from '@/ai/flows/suggest-wedding-photography-style';
+import { motion } from "framer-motion";
 
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
@@ -49,7 +50,14 @@ export function AiStyleFinder() {
   }
 
   return (
-    <section id="ai-stylist" className="py-16 md:py-24 bg-background/70">
+    <motion.section
+      id="ai-stylist"
+      className="py-16 md:py-24 bg-background/70 overflow-hidden"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.5 }}
+    >
       <div className="container max-w-4xl">
         <div className="text-center mb-12">
           <h2 className="font-headline text-4xl md:text-5xl text-primary flex items-center justify-center gap-3">
@@ -148,6 +156,6 @@ export function AiStyleFinder() {
           </Card>
         )}
       </div>
-    </section>
+    </motion.section>
   );
 }

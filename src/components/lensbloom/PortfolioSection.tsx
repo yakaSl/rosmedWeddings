@@ -8,6 +8,7 @@ import {
   DialogContent,
 } from "@/components/ui/dialog";
 import { PlayCircle } from "lucide-react";
+import { motion } from "framer-motion";
 
 const portfolioItems = [
   { id: 1, category: "Weddings", type: "image", src: "https://placehold.co/600x400.png", hint: "bride groom" },
@@ -34,19 +35,52 @@ export function PortfolioSection() {
       ? portfolioItems
       : portfolioItems.filter((item) => item.category === activeFilter);
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
   return (
-    <section id="portfolio" className="py-16 md:py-24 bg-background/70">
+    <section id="portfolio" className="py-16 md:py-24 bg-background/70 overflow-hidden">
       <div className="container max-w-7xl">
-        <div className="text-center mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-12"
+        >
           <h2 className="font-headline text-4xl md:text-5xl text-primary">
             Our Portfolio
           </h2>
           <p className="text-lg text-foreground/80 mt-2">
             A glimpse into the stories we've had the honor to capture.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="flex justify-center flex-wrap gap-2 mb-8">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="flex justify-center flex-wrap gap-2 mb-8"
+        >
           {filters.map((filter) => (
             <Button
               key={filter}
@@ -56,11 +90,22 @@ export function PortfolioSection() {
               {filter}
             </Button>
           ))}
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           {filteredItems.map((item) => (
-             <div key={item.id} className="group relative cursor-pointer overflow-hidden rounded-lg shadow-lg" onClick={() => setSelectedItem(item)}>
+             <motion.div
+              key={item.id}
+              variants={itemVariants}
+              className="group relative cursor-pointer overflow-hidden rounded-lg shadow-lg"
+              onClick={() => setSelectedItem(item)}
+            >
               <Image
                 src={item.type === 'image' ? item.src : item.thumbnail!}
                 alt={`Portfolio item ${item.id}`}
@@ -75,9 +120,9 @@ export function PortfolioSection() {
                   <PlayCircle className="w-16 h-16 text-white/80 transition-transform duration-300 group-hover:scale-110" />
                 </div>
               )}
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
         
         <Dialog open={!!selectedItem} onOpenChange={(isOpen) => !isOpen && setSelectedItem(null)}>
             <DialogContent className="max-w-4xl w-full p-0 border-0 bg-transparent">

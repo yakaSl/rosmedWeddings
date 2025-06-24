@@ -1,8 +1,11 @@
+"use client";
+
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 
 const packages = [
   {
@@ -46,25 +49,60 @@ const packages = [
   },
 ];
 
+const MotionCard = motion(Card);
+
 export function PackagesSection() {
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
   return (
-    <section id="packages" className="py-16 md:py-24 bg-background">
+    <section id="packages" className="py-16 md:py-24 bg-background overflow-hidden">
       <div className="container max-w-7xl">
-        <div className="text-center mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-12"
+        >
           <h2 className="font-headline text-4xl md:text-5xl text-primary">
             Wedding Packages
           </h2>
           <p className="text-lg text-foreground/80 mt-2">
             Investment in memories that last a lifetime.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-center">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           {packages.map((pkg, index) => (
-            <Card
+            <MotionCard
               key={pkg.name}
+              variants={itemVariants}
               className={cn(
-                "flex flex-col transition-all duration-300 ease-out",
+                "flex flex-col transition-all duration-300 ease-out h-full",
                 pkg.highlight 
                   ? "border-primary shadow-2xl md:scale-105" 
                   : "shadow-lg hover:shadow-xl",
@@ -93,9 +131,9 @@ export function PackagesSection() {
                   </Button>
                 </Link>
               </CardFooter>
-            </Card>
+            </MotionCard>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

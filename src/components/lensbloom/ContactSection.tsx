@@ -11,6 +11,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
 import { useTransition } from 'react';
+import { motion } from 'framer-motion';
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters."),
@@ -28,6 +29,7 @@ async function submitContactForm(data: z.infer<typeof formSchema>) {
     return { success: true };
 }
 
+const MotionCard = motion(Card);
 
 export function ContactSection() {
     const { toast } = useToast();
@@ -62,9 +64,15 @@ export function ContactSection() {
     }
 
   return (
-    <section id="contact" className="py-16 md:py-24 bg-background">
+    <section id="contact" className="py-16 md:py-24 bg-background overflow-hidden">
       <div className="container max-w-3xl">
-        <Card className="shadow-xl">
+        <MotionCard
+          className="shadow-xl"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5 }}
+        >
           <CardHeader className="text-center">
             <CardTitle className="font-headline text-4xl md:text-5xl text-primary">Get In Touch</CardTitle>
             <CardDescription className="text-lg mt-2">
@@ -124,7 +132,7 @@ export function ContactSection() {
               </form>
             </Form>
           </CardContent>
-        </Card>
+        </MotionCard>
       </div>
     </section>
   );

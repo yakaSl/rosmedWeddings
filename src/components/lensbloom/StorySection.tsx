@@ -1,12 +1,21 @@
+"use client";
+
 import Image from "next/image";
 import { Card } from "@/components/ui/card";
+import { motion } from "framer-motion";
 
 export function StorySection() {
   return (
-    <section id="about" className="py-16 md:py-24 bg-background">
+    <section id="about" className="py-16 md:py-24 bg-background overflow-hidden">
       <div className="container max-w-7xl">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="flex justify-center">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5 }}
+            className="flex justify-center"
+          >
             <Card className="overflow-hidden shadow-xl w-full max-w-md rounded-lg">
                 <Image
                   src="https://placehold.co/600x800.png"
@@ -17,8 +26,14 @@ export function StorySection() {
                   className="object-cover w-full h-full"
                 />
             </Card>
-          </div>
-          <div className="space-y-6 text-center md:text-left">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="space-y-6 text-center md:text-left"
+          >
             <h2 className="font-headline text-4xl md:text-5xl text-primary">
               My Story & Vision
             </h2>
@@ -28,7 +43,7 @@ export function StorySection() {
             <p className="text-lg text-foreground/80">
               My approach is to blend into the background, capturing the candid smiles, the happy tears, and the quiet, intimate glances that make your day truly yours. I aim to create not just photos, but heirlooms—timeless images that will transport you back to the joy and emotion of your wedding day for years to come.
             </p>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
