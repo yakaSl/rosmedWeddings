@@ -2,36 +2,41 @@
 
 import Image from "next/image";
 import { Card } from "@/components/ui/card";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 export function StorySection() {
+  const targetRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ["start end", "end start"],
+  });
+
+  const imageY = useTransform(scrollYProgress, [0, 1], ["10%", "-10%"]);
+  const textY = useTransform(scrollYProgress, [0, 1], ["20%", "-20%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.25, 0.75, 1], [0, 1, 1, 0]);
+
   return (
-    <section id="about" className="py-16 md:py-24 bg-background overflow-hidden">
-      <div className="container max-w-7xl">
+    <section id="about" ref={targetRef} className="py-16 md:py-24 bg-background overflow-hidden relative min-h-[110vh]">
+      <div className="container max-w-7xl h-full sticky top-16 flex items-center">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5 }}
+            style={{ y: imageY, opacity }}
             className="flex justify-center"
           >
             <Card className="overflow-hidden shadow-xl w-full max-w-md rounded-lg">
-                <Image
-                  src="https://placehold.co/600x800.png"
-                  alt="Portrait of the photographer"
-                  data-ai-hint="photographer portrait"
-                  width={600}
-                  height={800}
-                  className="object-cover w-full h-full"
-                />
+              <Image
+                src="https://placehold.co/600x800.png"
+                alt="Portrait of the photographer"
+                data-ai-hint="photographer portrait"
+                width={600}
+                height={800}
+                className="object-cover w-full h-full"
+              />
             </Card>
           </motion.div>
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            style={{ y: textY, opacity }}
             className="space-y-6 text-center md:text-left"
           >
             <h2 className="font-headline text-4xl md:text-5xl text-primary">

@@ -62,7 +62,7 @@ export function PackagesSection() {
   };
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { y: 50, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
@@ -76,7 +76,7 @@ export function PackagesSection() {
     <section id="packages" className="py-16 md:py-24 bg-background overflow-hidden">
       <div className="container max-w-7xl">
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.5 }}
