@@ -13,6 +13,7 @@ import { useTransition } from 'react';
 import Link from 'next/link';
 import { Header } from '@/components/lensbloom/Header';
 import { Footer } from '@/components/lensbloom/Footer';
+import { ToastAction } from '@/components/ui/toast';
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters."),
@@ -53,6 +54,11 @@ export default function SignUpPage() {
                 toast({
                     title: "Account Created!",
                     description: "Welcome! You can now log in.",
+                    action: (
+                        <ToastAction altText="Log In" asChild>
+                            <Link href="/login">Log In</Link>
+                        </ToastAction>
+                    )
                 });
                 form.reset();
             } else {

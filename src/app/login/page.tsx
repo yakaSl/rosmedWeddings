@@ -19,19 +19,19 @@ export default function LoginPage() {
                         </CardDescription>
                     </CardHeader>
                     <CardContent>
-                        <form className="space-y-4">
+                        <div className="space-y-4">
                             <div className="space-y-2">
                                 <Label htmlFor="email">Email</Label>
-                                <Input id="email" type="email" placeholder="your@email.com" />
+                                <Input id="email" type="email" placeholder="your@email.com" defaultValue="jane.doe@example.com" />
                             </div>
                             <div className="space-y-2">
                                 <Label htmlFor="password">Password</Label>
-                                <Input id="password" type="password" placeholder="••••••••" />
+                                <Input id="password" type="password" placeholder="••••••••" defaultValue="password" />
                             </div>
-                            <Button type="submit" size="lg" className="w-full mt-6">
-                                Log In
+                            <Button size="lg" className="w-full mt-6" asChild>
+                               <Link href="/dashboard">Log In</Link>
                             </Button>
-                        </form>
+                        </div>
                         <p className="mt-6 text-center text-sm text-muted-foreground">
                             Don't have an account?{" "}
                             <Link href="/signup" className="font-semibold text-primary hover:underline">

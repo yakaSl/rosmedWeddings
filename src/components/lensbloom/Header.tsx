@@ -46,9 +46,9 @@ export function Header() {
               </Link>
             ))}
           </nav>
-          <Link href="/signup" passHref>
-            <Button variant="outline">Sign Up</Button>
-          </Link>
+          <Button asChild>
+            <Link href="/login">Log In</Link>
+          </Button>
         </div>
 
         <div className="md:hidden">
@@ -89,13 +89,13 @@ export function Header() {
                       </Link>
                     </SheetClose>
                   ))}
-                  <SheetClose asChild key="/signup">
+                  <SheetClose asChild key="/login">
                     <Link
-                      href="/signup"
+                      href="/login"
                       className="text-xl font-medium text-foreground/80 transition-colors hover:text-foreground w-full text-left py-2"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      Sign Up
+                      Log In
                     </Link>
                   </SheetClose>
                 </nav>
