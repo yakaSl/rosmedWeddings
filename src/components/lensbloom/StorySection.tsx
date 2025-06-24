@@ -26,7 +26,7 @@ export function StorySection() {
           >
             <Card className="overflow-hidden shadow-xl w-full max-w-md rounded-lg">
               <Image
-                src="https://placehold.co/600x800.png"
+                src="/images/akila.jpg"
                 alt="Portrait of the photographer"
                 data-ai-hint="photographer portrait"
                 width={600}
@@ -43,10 +43,16 @@ export function StorySection() {
               My Story & Vision
             </h2>
             <p className="text-lg text-foreground/80">
-              Hello, I'm Alex, the heart and lens behind RosemedWeddings. My journey into photography began with a simple desire to hold onto fleeting moments. I believe that every couple has a unique story, a special spark that deserves to be told with authenticity and artistry.
+              Hi, I’m Akila Anjuna — a storyteller with a camera, capturing love in its most genuine form. My journey into wedding photography began with a simple belief: every couple has a beautiful story worth telling, and every fleeting moment deserves to be remembered forever.
             </p>
             <p className="text-lg text-foreground/80">
-              My approach is to blend into the background, capturing the candid smiles, the happy tears, and the quiet, intimate glances that make your day truly yours. I aim to create not just photos, but heirlooms—timeless images that will transport you back to the joy and emotion of your wedding day for years to come.
+              Weddings are a blend of laughter, emotion, connection, and quiet intimacy — and I aim to document it all with honesty and artistry. My style is unobtrusive yet intentional, focusing on natural light, candid emotions, and the subtle details that often go unnoticed but matter most.
+            </p>
+            <p className="text-lg text-foreground/80">
+              With experience in photographing everything from grand celebrations to intimate gatherings, I bring a calm, professional presence to your big day. I blend into the background, letting moments unfold organically — from joyful tears to stolen glances — capturing them with care and creativity.
+            </p>
+            <p className="text-lg text-foreground/80">
+              More than just photos, I create timeless keepsakes — heirlooms that will transport you back to the magic, the mood, and the love that made your day unforgettable. Let’s turn your wedding memories into visual poetry.
             </p>
           </motion.div>
         </div>

@@ -11,15 +11,16 @@ import { PlayCircle } from "lucide-react";
 import { motion } from "framer-motion";
 
 const portfolioItems = [
-  { id: 1, category: "Weddings", type: "image", src: "https://placehold.co/600x400.png", hint: "bride groom" },
-  { id: 2, category: "Engagements", type: "image", src: "https://placehold.co/600x400.png", hint: "engagement couple" },
-  { id: 3, category: "Weddings", type: "video", src: "https://www.youtube.com/embed/LXb3EKWsInQ", thumbnail: "https://placehold.co/600x400.png", hint: "wedding video" },
-  { id: 4, category: "Elopements", type: "image", src: "https://placehold.co/600x400.png", hint: "elopement couple" },
-  { id: 5, category: "Weddings", type: "image", src: "https://placehold.co/600x400.png", hint: "wedding reception" },
-  { id: 6, category: "Engagements", type: "image", src: "https://placehold.co/600x400.png", hint: "couple laughing" },
-  { id: 7, category: "Weddings", type: "image", src: "https://placehold.co/600x400.png", hint: "wedding cake" },
-  { id: 8, category: "Elopements", type: "image", src: "https://placehold.co/600x400.png", hint: "mountain elopement" },
-  { id: 9, category: "Engagements", type: "image", src: "https://placehold.co/600x400.png", hint: "beach proposal" },
+  { id: 1, category: "Weddings", type: "image", src: "/images/Gallery/Weddings/1.jpg", hint: "bride groom" },
+  { id: 2, category: "Engagements", type: "image", src: "/images/Gallery/Engagements/2.jpg", hint: "engagement couple" },
+  { id: 3, category: "Engagements", type: "image", src: "/images/Gallery/Engagements/3.jpg", hint: "wedding couple" },
+  { id: 4, category: "Engagements", type: "image", src: "/images/Gallery/Engagements/4.jpg", hint: "elopement couple" },
+  //{ id: 3, category: "Weddings", type: "video", src: "https://www.youtube.com/embed/LXb3EKWsInQ", thumbnail: "https://placehold.co/600x400.png", hint: "wedding video" },  
+  { id: 5, category: "Engagements", type: "image", src: "/images/Gallery/Engagements/5.jpg", hint: "wedding reception" },
+  { id: 6, category: "Engagements", type: "image", src: "/images/Gallery/Engagements/6.jpg", hint: "couple laughing" },
+  { id: 7, category: "Engagements", type: "image", src: "/images/Gallery/Engagements/7.jpg", hint: "wedding cake" },
+  { id: 8, category: "Elopements", type: "image", src: "/images/Gallery/Elopements/8.jpg", hint: "mountain elopement" },
+  { id: 9, category: "Engagements", type: "image", src: "/images/Gallery/Engagements/9.jpg", hint: "beach proposal" },
 ];
 
 const filters = ["All", "Weddings", "Engagements", "Elopements"];
