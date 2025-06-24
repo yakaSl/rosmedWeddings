@@ -9,12 +9,10 @@ export function Footer() {
       <div className="container max-w-7xl py-12 text-center">
         <div className="flex justify-center items-center mb-4">
           <Image
-            src="https://placehold.co/150x50.png"
+            src="/image/logo.png"
             width={150}
             height={50}
             alt="LensBloom Logo"
-            data-ai-hint="logo"
-            className="invert dark:invert-0"
           />
         </div>
         <p className="mb-6">Capturing life's most precious moments.</p>
