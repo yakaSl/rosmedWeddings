@@ -28,7 +28,7 @@ export function Header() {
             src="/image/logo.png"
             width={140}
             height={40}
-            alt="LensBloom Logo"
+            alt="Rosmed Logo"
             priority
           />
         </Link>
