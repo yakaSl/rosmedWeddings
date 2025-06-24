@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 const packages = [
   {
     name: "The Elopement",
-    price: "$1,800",
+    price: "LKR 540,000",
     description: "For intimate celebrations and adventurous hearts.",
     features: [
       "Up to 4 hours of coverage",
@@ -22,7 +22,7 @@ const packages = [
   },
   {
     name: "The Classic",
-    price: "$3,500",
+    price: "LKR 1,050,000",
     description: "Our most popular package for a perfect day.",
     features: [
       "8 hours of coverage",
@@ -35,7 +35,7 @@ const packages = [
   },
   {
     name: "The Fairytale",
-    price: "$5,200",
+    price: "LKR 1,560,000",
     description: "Comprehensive coverage for your entire story.",
     features: [
       "Full day coverage (up to 12 hours)",
